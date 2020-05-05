@@ -12,3 +12,6 @@
 #include <stdio.h>
 
 #endif /* showing_h */
+#include "strukts.h"
+
+int showing(Graph *);

@@ -7,3 +7,5 @@
 //
 
 #include "searching.h"
+
+int searching(Graph * danil);

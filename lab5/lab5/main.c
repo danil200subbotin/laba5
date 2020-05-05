@@ -25,9 +25,13 @@ int main() {
     Graph *graph = (Graph *)calloc(1, sizeof(Graph));
     graph->root = (Node *)calloc(1, sizeof(Node));
     graph->n = 0;
+    for (int i = 0; i < N; ++i) {
+        graph->root->leaves[i] = NULL;
+    };
     printf("Добро пожаловать в идеальную табличку на Q-дереве\n");
     int n = 0;
-    int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing};
+    //int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing};
+    int (*func[])(Graph *) = {NULL, adding, NULL, NULL, NULL};
     while(n != -1) {
         printf("you should have to choose one of the alternatives bellow\n");
         n = dialog(messages, Cmassages);

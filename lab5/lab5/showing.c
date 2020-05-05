@@ -7,3 +7,5 @@
 //
 
 #include "showing.h"
+
+int showing(Graph* danil);

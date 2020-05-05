@@ -12,7 +12,7 @@
 #include <string.h>
 
 char *readln(void) {
-    //while (scanf("%*c") != 0);
+    printf("введите информацию\n");
     char *ptr = (char *)malloc(1);
     *ptr = '\0';
     char buf[101];

@@ -7,3 +7,5 @@
 //
 
 #include "deleting.h"
+
+int deleting(Graph * danil);

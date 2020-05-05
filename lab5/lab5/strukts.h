@@ -14,6 +14,7 @@
 
 #define SIZE 4
 #define N 2
+#define UGOL 4096
 
 typedef struct List List;
 struct List {
@@ -27,6 +28,10 @@ struct Node{
     int type;                   //имеет значенение 0 для разделяющего узла
     int gran_x;                  //и 1 для узла с листьями
     int gran_y;
+    int max_x;
+    int max_y;
+    int min_x;
+    int min_y;
     Node* sun[SIZE];
     List* leaves[N];
 };
