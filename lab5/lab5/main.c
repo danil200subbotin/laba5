@@ -10,9 +10,14 @@
 #include <stdlib.h>
 #include "readln.h"
 #include "dialog.h"
+#include "strukts.h"
+#include "adding.h"
+#include "searching.h"
+#include "deleting.h"
+#include "showing.h"
+
 #define SIZE 4
 #define N 2
-#include "strukts.h"
 
 const char *messages[] = {"0. Exit", "1. Adding element", "2. Finding element", "3. Delete element", "4. Show Al Table"};
 
