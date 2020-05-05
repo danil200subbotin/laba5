@@ -14,6 +14,7 @@
 		0F7577832460B8670018D5B8 /* searching.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577822460B8670018D5B8 /* searching.c */; };
 		0F7577862460B87B0018D5B8 /* deleting.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577852460B87B0018D5B8 /* deleting.c */; };
 		0F7577892460B8900018D5B8 /* showing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577882460B8900018D5B8 /* showing.c */; };
+		0F75778C246138FF0018D5B8 /* vstavka.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75778B246138FF0018D5B8 /* vstavka.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,8 @@
 		0F7577852460B87B0018D5B8 /* deleting.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = deleting.c; sourceTree = "<group>"; };
 		0F7577872460B8900018D5B8 /* showing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showing.h; sourceTree = "<group>"; };
 		0F7577882460B8900018D5B8 /* showing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = showing.c; sourceTree = "<group>"; };
+		0F75778A246138FF0018D5B8 /* vstavka.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vstavka.h; sourceTree = "<group>"; };
+		0F75778B246138FF0018D5B8 /* vstavka.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vstavka.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,14 +79,16 @@
 		0F3B8475245F752000724DFD /* lab5 */ = {
 			isa = PBXGroup;
 			children = (
+				0F7577802460AA250018D5B8 /* strukts.h */,
 				0F3B8476245F752000724DFD /* main.c */,
 				0F757777246091680018D5B8 /* readln.h */,
 				0F757778246091680018D5B8 /* readln.c */,
 				0F75777A246093FC0018D5B8 /* dialog.h */,
 				0F75777B246093FC0018D5B8 /* dialog.c */,
 				0F75777D2460A99A0018D5B8 /* adding.h */,
+				0F75778A246138FF0018D5B8 /* vstavka.h */,
+				0F75778B246138FF0018D5B8 /* vstavka.c */,
 				0F75777E2460A99A0018D5B8 /* adding.c */,
-				0F7577802460AA250018D5B8 /* strukts.h */,
 				0F7577812460B8670018D5B8 /* searching.h */,
 				0F7577822460B8670018D5B8 /* searching.c */,
 				0F7577842460B87B0018D5B8 /* deleting.h */,
@@ -153,6 +158,7 @@
 			files = (
 				0F7577832460B8670018D5B8 /* searching.c in Sources */,
 				0F75777F2460A99A0018D5B8 /* adding.c in Sources */,
+				0F75778C246138FF0018D5B8 /* vstavka.c in Sources */,
 				0F7577892460B8900018D5B8 /* showing.c in Sources */,
 				0F757779246091680018D5B8 /* readln.c in Sources */,
 				0F7577862460B87B0018D5B8 /* deleting.c in Sources */,

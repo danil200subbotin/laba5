@@ -16,8 +16,6 @@
 #include "deleting.h"
 #include "showing.h"
 
-#define SIZE 4
-#define N 2
 
 const char *messages[] = {"0. Exit", "1. Adding element", "2. Finding element", "3. Delete element", "4. Show Al Table"};
 
