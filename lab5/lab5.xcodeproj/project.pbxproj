@@ -16,6 +16,8 @@
 		0F7577892460B8900018D5B8 /* showing2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577882460B8900018D5B8 /* showing2.c */; };
 		0F75778C246138FF0018D5B8 /* vstavka.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75778B246138FF0018D5B8 /* vstavka.c */; };
 		0F75778E2465DFA90018D5B8 /* showing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75778D2465DFA90018D5B8 /* showing.c */; };
+		0F757792246608EB0018D5B8 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F757791246608EB0018D5B8 /* libSDL2-2.0.0.dylib */; };
+		0F7577952466092B0018D5B8 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577942466092B0018D5B8 /* draw.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +52,9 @@
 		0F75778B246138FF0018D5B8 /* vstavka.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vstavka.c; sourceTree = "<group>"; };
 		0F75778D2465DFA90018D5B8 /* showing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = showing.c; sourceTree = "<group>"; };
 		0F75778F2465E0050018D5B8 /* showing2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showing2.h; sourceTree = "<group>"; };
+		0F757791246608EB0018D5B8 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.12_1/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		0F7577932466092B0018D5B8 /* draw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = "<group>"; };
+		0F7577942466092B0018D5B8 /* draw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = draw.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F757792246608EB0018D5B8 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,7 @@
 			children = (
 				0F3B8475245F752000724DFD /* lab5 */,
 				0F3B8474245F752000724DFD /* Products */,
+				0F757790246608EB0018D5B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,8 +107,18 @@
 				0F75778D2465DFA90018D5B8 /* showing.c */,
 				0F75778F2465E0050018D5B8 /* showing2.h */,
 				0F7577882460B8900018D5B8 /* showing2.c */,
+				0F7577932466092B0018D5B8 /* draw.h */,
+				0F7577942466092B0018D5B8 /* draw.c */,
 			);
 			path = lab5;
+			sourceTree = "<group>";
+		};
+		0F757790246608EB0018D5B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F757791246608EB0018D5B8 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +183,7 @@
 				0F75777F2460A99A0018D5B8 /* adding.c in Sources */,
 				0F75778C246138FF0018D5B8 /* vstavka.c in Sources */,
 				0F7577892460B8900018D5B8 /* showing2.c in Sources */,
+				0F7577952466092B0018D5B8 /* draw.c in Sources */,
 				0F757779246091680018D5B8 /* readln.c in Sources */,
 				0F7577862460B87B0018D5B8 /* deleting.c in Sources */,
 				0F75777C246093FC0018D5B8 /* dialog.c in Sources */,
@@ -289,6 +307,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = " /usr/local/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -297,6 +320,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = " /usr/local/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

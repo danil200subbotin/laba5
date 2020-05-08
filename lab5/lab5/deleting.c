@@ -44,6 +44,7 @@ int deleting(Graph * graph) {
                 printf("нашелся такой элементик, удаляю\n");
                 free(ukazka->leaves[h]->info);
                 ukazka->leaves[h] = NULL;
+                --(graph->n);
                 }
             }
         }
