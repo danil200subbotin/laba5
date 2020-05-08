@@ -13,8 +13,9 @@
 		0F75777F2460A99A0018D5B8 /* adding.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75777E2460A99A0018D5B8 /* adding.c */; };
 		0F7577832460B8670018D5B8 /* searching.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577822460B8670018D5B8 /* searching.c */; };
 		0F7577862460B87B0018D5B8 /* deleting.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577852460B87B0018D5B8 /* deleting.c */; };
-		0F7577892460B8900018D5B8 /* showing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577882460B8900018D5B8 /* showing.c */; };
+		0F7577892460B8900018D5B8 /* showing2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577882460B8900018D5B8 /* showing2.c */; };
 		0F75778C246138FF0018D5B8 /* vstavka.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75778B246138FF0018D5B8 /* vstavka.c */; };
+		0F75778E2465DFA90018D5B8 /* showing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F75778D2465DFA90018D5B8 /* showing.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,9 +45,11 @@
 		0F7577842460B87B0018D5B8 /* deleting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = deleting.h; sourceTree = "<group>"; };
 		0F7577852460B87B0018D5B8 /* deleting.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = deleting.c; sourceTree = "<group>"; };
 		0F7577872460B8900018D5B8 /* showing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showing.h; sourceTree = "<group>"; };
-		0F7577882460B8900018D5B8 /* showing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = showing.c; sourceTree = "<group>"; };
+		0F7577882460B8900018D5B8 /* showing2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = showing2.c; sourceTree = "<group>"; };
 		0F75778A246138FF0018D5B8 /* vstavka.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vstavka.h; sourceTree = "<group>"; };
 		0F75778B246138FF0018D5B8 /* vstavka.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vstavka.c; sourceTree = "<group>"; };
+		0F75778D2465DFA90018D5B8 /* showing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = showing.c; sourceTree = "<group>"; };
+		0F75778F2465E0050018D5B8 /* showing2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showing2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +97,9 @@
 				0F7577842460B87B0018D5B8 /* deleting.h */,
 				0F7577852460B87B0018D5B8 /* deleting.c */,
 				0F7577872460B8900018D5B8 /* showing.h */,
-				0F7577882460B8900018D5B8 /* showing.c */,
+				0F75778D2465DFA90018D5B8 /* showing.c */,
+				0F75778F2465E0050018D5B8 /* showing2.h */,
+				0F7577882460B8900018D5B8 /* showing2.c */,
 			);
 			path = lab5;
 			sourceTree = "<group>";
@@ -157,9 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7577832460B8670018D5B8 /* searching.c in Sources */,
+				0F75778E2465DFA90018D5B8 /* showing.c in Sources */,
 				0F75777F2460A99A0018D5B8 /* adding.c in Sources */,
 				0F75778C246138FF0018D5B8 /* vstavka.c in Sources */,
-				0F7577892460B8900018D5B8 /* showing.c in Sources */,
+				0F7577892460B8900018D5B8 /* showing2.c in Sources */,
 				0F757779246091680018D5B8 /* readln.c in Sources */,
 				0F7577862460B87B0018D5B8 /* deleting.c in Sources */,
 				0F75777C246093FC0018D5B8 /* dialog.c in Sources */,

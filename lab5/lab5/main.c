@@ -31,7 +31,7 @@ int main() {
     printf("Добро пожаловать в идеальную табличку на Q-дереве\n");
     int n = 0;
     //int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing};
-    int (*func[])(Graph *) = {NULL, adding, searching, NULL, NULL};
+    int (*func[])(Graph *) = {NULL, adding, searching, NULL, showing};
     while(n != -1) {
         printf("you should have to choose one of the alternatives bellow\n");
         n = dialog(messages, Cmassages);

@@ -10,8 +10,8 @@
 #define showing_h
 
 #include <stdio.h>
-
-#endif /* showing_h */
 #include "strukts.h"
+#endif /* showing_h */
+
 
 int showing(Graph *);

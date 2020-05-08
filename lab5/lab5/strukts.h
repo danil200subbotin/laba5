@@ -13,7 +13,7 @@
 #endif /* strukts_h */
 
 #define SIZE 4
-#define N 2
+#define N 3
 #define UGOL 4096
 
 typedef struct List List;

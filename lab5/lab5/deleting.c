@@ -8,4 +8,14 @@
 
 #include "deleting.h"
 
-int deleting(Graph * danil);
+int deleting(Graph * graph) {
+    int x, y;
+    printf("добро пожаловать в функцию удаления\n");
+    printf("введите ключ X\n");
+    scanf("%d", &x);
+    printf("введите ключ Y\n");
+    scanf("%d", &y);
+    
+    
+    return 0;
+}

@@ -32,15 +32,19 @@ int vstavka(int x, int y, Node* ukazka) {
         list = ukazka->leaves[i];
         ukazka->leaves[i] = new;
         ++i;
+        if (ukazka->leaves[i] != NULL) {
         for (; ukazka->leaves[i] != NULL; ++i) {
             new = ukazka->leaves[i];
             ukazka->leaves[i] = list;
         }
         ukazka->leaves[i] = new;
+        }
         return 0;
     }
     else {
         printf("нужная часть дерева переполнена, придется разделить ее на 4 части\n");
+        printf("на самом деле тут следующее:\n");
+        
         
         ukazka->type = 0;
         Node *node1 = (Node *)calloc(1, sizeof(Node));
@@ -63,11 +67,17 @@ int vstavka(int x, int y, Node* ukazka) {
         node2->min_y = node1->min_y;
         
         node3->gran_x = node2->gran_x;
+        printf("node3->gran_x=%d\n", node3->gran_x);
         node3->gran_y = (ukazka->gran_y + ukazka->min_y)/2;
+        printf("node3->gran_y=%d\n", node3->gran_y);
         node3->max_x = node2->max_x;
+        printf("node3->max_x=%d\n", node3->max_x);
         node3->max_y = ukazka->gran_y;
+        printf("node3->max_y=%d\n", node3->max_y);
         node3->min_x = node2->min_x;
-        node3->min_y = ukazka->max_y;
+        printf("node3->min_x=%d\n", node3->min_x);
+        node3->min_y = ukazka->min_y;
+        printf("node3->min_y=%d\n", node3->min_y);
         
         node4->gran_x = node1->gran_x;
         node4->gran_y = node3->gran_y;
@@ -97,47 +107,59 @@ int vstavka(int x, int y, Node* ukazka) {
                     continue;
                 }
                 if ((ukazka->leaves[i]->x < ukazka->gran_x) & (ukazka->leaves[i]->y > ukazka->gran_y)) {
-                    node2->leaves[n1] = ukazka->leaves[i];
+                    node2->leaves[n2] = ukazka->leaves[i];
                     ukazka->leaves[i] = NULL;
                     ++n2;
                     continue;
                 }
                 if ((ukazka->leaves[i]->x <= ukazka->gran_x) & (ukazka->leaves[i]->y <= ukazka->gran_y) & !((ukazka->leaves[i]->x == ukazka->gran_x) & (ukazka->leaves[i]->y == ukazka->gran_y))) {
-                    ukazka = ukazka->sun[2];
-                    node3->leaves[n1] = ukazka->leaves[i];
+                    //ukazka = ukazka->sun[2];
+                    node3->leaves[n3] = ukazka->leaves[i];
                     ukazka->leaves[i] = NULL;
                     ++n3;
                     continue;
                 }
                 if ((ukazka->leaves[i]->x > ukazka->gran_x) & (ukazka->leaves[i]->y < ukazka->gran_y)) {
-                    node4->leaves[n1] = ukazka->leaves[i];
+                    node4->leaves[n4] = ukazka->leaves[i];
                     ukazka->leaves[i] = NULL;
                     ++n4;
                     continue;
                 }
             }
+        for (int j = n1; j < SIZE; ++j) {
+            node1->leaves[j] = NULL;
+        }
+        for (int j = n2; j < SIZE; ++j) {
+            node2->leaves[j] = NULL;
+        }
+        for (int j = n3; j < SIZE; ++j) {
+            node3->leaves[j] = NULL;
+        }
+        for (int j = n4; j < SIZE; ++j) {
+            node4->leaves[j] = NULL;
+        }
         if ((n1 == N) || (n2 == N) || (n3 == N) || (n4 == N)) {
             printf("вхожу в рекурсию резальщика");
         };
         for (int g = 0; g < 1; ++g) {
             if ((x >= ukazka->gran_x) & (y >= ukazka->gran_y)) {
                 ukazka = ukazka->sun[0];
-                printf("перешел ниже\n");
+                printf("перешел ниже1\n");
                 continue;
             }
             if (( x < ukazka->gran_x) & (y > ukazka->gran_y)) {
                 ukazka = ukazka->sun[1];
-                printf("перешел ниже\n");
+                printf("перешел ниже2\n");
                 continue;
             }
             if (( x <= ukazka->gran_x) & (y <= ukazka->gran_y) & !((x == ukazka->gran_x) & (y == ukazka->gran_y))) {
                 ukazka = ukazka->sun[2];
-                printf("перешел ниже\n");
+                printf("перешел ниже3\n");
                 continue;
             }
             if (( x > ukazka->gran_x) & (y < ukazka->gran_y)) {
                 ukazka = ukazka->sun[3];
-                printf("перешел ниже\n");
+                printf("перешел ниже4\n");
                 continue;
             }
         }

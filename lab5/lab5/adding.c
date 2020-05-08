@@ -56,7 +56,7 @@ int adding(Graph *graph) {
             n = 1;
             int chek = vstavka(x, y, ukazka);
             if (chek == 0) {
-                printf("вставка прошла успешно");
+                printf("вставка прошла успешно\n");
                 ++(graph->n);
             }
         }
