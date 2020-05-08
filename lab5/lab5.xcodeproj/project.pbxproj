@@ -79,6 +79,7 @@
 		0F3B8475245F752000724DFD /* lab5 */ = {
 			isa = PBXGroup;
 			children = (
+				0F7577822460B8670018D5B8 /* searching.c */,
 				0F75778B246138FF0018D5B8 /* vstavka.c */,
 				0F75777E2460A99A0018D5B8 /* adding.c */,
 				0F7577802460AA250018D5B8 /* strukts.h */,
@@ -90,7 +91,6 @@
 				0F75777D2460A99A0018D5B8 /* adding.h */,
 				0F75778A246138FF0018D5B8 /* vstavka.h */,
 				0F7577812460B8670018D5B8 /* searching.h */,
-				0F7577822460B8670018D5B8 /* searching.c */,
 				0F7577842460B87B0018D5B8 /* deleting.h */,
 				0F7577852460B87B0018D5B8 /* deleting.c */,
 				0F7577872460B8900018D5B8 /* showing.h */,

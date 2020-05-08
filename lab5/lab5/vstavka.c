@@ -12,7 +12,7 @@
 #include "readln.h"
 
 int vstavka(int x, int y, Node* ukazka) {
-    if (ukazka->leaves[N-1] != NULL) {
+    if (ukazka->leaves[N-1] == NULL) {
         List* list = NULL;
         List* new = (List *)calloc(1, sizeof(List));
         new->x = x;
@@ -40,7 +40,8 @@ int vstavka(int x, int y, Node* ukazka) {
         return 0;
     }
     else {
-        printf("нужная честь дерева переполнена, придется разделить ее на 4 части\n");
+        printf("нужная часть дерева переполнена, придется разделить ее на 4 части\n");
+        
         ukazka->type = 0;
         Node *node1 = (Node *)calloc(1, sizeof(Node));
         Node *node2 = (Node *)calloc(1, sizeof(Node));
@@ -121,18 +122,22 @@ int vstavka(int x, int y, Node* ukazka) {
         for (int g = 0; g < 1; ++g) {
             if ((x >= ukazka->gran_x) & (y >= ukazka->gran_y)) {
                 ukazka = ukazka->sun[0];
+                printf("перешел ниже\n");
                 continue;
             }
             if (( x < ukazka->gran_x) & (y > ukazka->gran_y)) {
                 ukazka = ukazka->sun[1];
+                printf("перешел ниже\n");
                 continue;
             }
             if (( x <= ukazka->gran_x) & (y <= ukazka->gran_y) & !((x == ukazka->gran_x) & (y == ukazka->gran_y))) {
                 ukazka = ukazka->sun[2];
+                printf("перешел ниже\n");
                 continue;
             }
             if (( x > ukazka->gran_x) & (y < ukazka->gran_y)) {
                 ukazka = ukazka->sun[3];
+                printf("перешел ниже\n");
                 continue;
             }
         }

@@ -12,6 +12,7 @@
 #include <string.h>
 
 char *readln(void) {
+    fseek (stdin, 0, SEEK_END);
     printf("введите информацию\n");
     char *ptr = (char *)malloc(1);
     *ptr = '\0';
