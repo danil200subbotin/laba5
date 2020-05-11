@@ -11,13 +11,13 @@
 #include <stdlib.h>
 #include "readln.h"
 
-int vstavka(int x, int y, Node* ukazka) {
+int vstavka(int x, int y, char* info, Node* ukazka) {
     if (ukazka->leaves[N-1] == NULL) {
         List* list = NULL;
         List* new = (List *)calloc(1, sizeof(List));
         new->x = x;
         new->y = y;
-        new->info = readln();
+        new->info = info;
         int i = 0;
         for (i = 0; ukazka->leaves[i] != NULL; ++i) {
             if ((x == ukazka->leaves[i]->x) & (y == ukazka->leaves[i]->y)) {
@@ -163,7 +163,7 @@ int vstavka(int x, int y, Node* ukazka) {
                 continue;
             }
         }
-        vstavka(x, y, ukazka);
+        vstavka(x, y, info, ukazka);
     }
     return +100500;
 }

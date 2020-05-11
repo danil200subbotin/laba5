@@ -8,9 +8,11 @@
 
 #ifndef adding_h
 #define adding_h
-
 #include <stdio.h>
 #include "strukts.h"
+#include "readln.h"
+#include "vstavka.h"
+#include "perehod.h"
 #endif /* adding_h */
 
 int adding(Graph *);

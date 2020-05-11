@@ -13,4 +13,4 @@
 #include "strukts.h"
 #endif /* vstavka_h */
 
-int vstavka(int x, int y, Node* ukazka);
+int vstavka(int x, int y,char* info, Node* ukazka);

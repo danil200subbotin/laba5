@@ -5,13 +5,15 @@
 //  Created by Данил Морозов on 09/05/2020.
 //  Copyright © 2020 Данил Морозов. All rights reserved.
 //
+#pragma once
 #ifndef LEVEL_H_
 #define LEVEL_H_
 #endif
 #include "draw.h"
 #include <SDL2/SDL.h>
 #include <stdio.h>
-
+#define DOT 7
+#include "strukts.h"
 
 
 int SCREEN_WIDTH = 1000;
@@ -21,7 +23,9 @@ int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
     if (ukazka->type == 1) {
         for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
             SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
-            SDL_RenderDrawPoint (renderer, ukazka->leaves[i]->x, ukazka->leaves[i]->y);
+            //SDL_RenderDrawPoint (renderer, ukazka->leaves[i]->x, ukazka->leaves[i]->y);
+            SDL_RenderDrawLine(renderer, ukazka->leaves[i]->x+DOT, UGOL - (ukazka->leaves[i]->y+DOT), ukazka->leaves[i]->x-DOT, UGOL - (ukazka->leaves[i]->y-DOT));
+            SDL_RenderDrawLine(renderer, ukazka->leaves[i]->x-DOT, UGOL - (ukazka->leaves[i]->y+DOT), ukazka->leaves[i]->x+DOT, UGOL - (ukazka->leaves[i]->y-DOT));
         }
         return 1;
     }
@@ -29,8 +33,8 @@ int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
         if (ukazka->sun[i] != NULL) {
             printf("-");
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-            SDL_RenderDrawLine(renderer, ukazka->min_x, ukazka->gran_y, ukazka->max_x, ukazka->gran_y);
-            SDL_RenderDrawLine(renderer, ukazka->gran_x, ukazka->max_y, ukazka->gran_x, ukazka->min_y);
+            SDL_RenderDrawLine(renderer, ukazka->min_x,UGOL - ukazka->gran_y, ukazka->max_x, UGOL - ukazka->gran_y);
+            SDL_RenderDrawLine(renderer, ukazka->gran_x, UGOL - ukazka->max_y, ukazka->gran_x, UGOL - ukazka->min_y);
             draw_this_shit(ukazka->sun[i], renderer);
             
         }
@@ -66,7 +70,7 @@ int draw(Graph* graph)
         SDL_Window* window = NULL;
         SDL_Renderer* renderer = NULL;
 
-        if (SDL_CreateWindowAndRenderer(1024, 1024, 0, &window, &renderer) == 0) {
+        if (SDL_CreateWindowAndRenderer(UGOL, UGOL, 0, &window, &renderer) == 0) {
             SDL_bool done = SDL_FALSE;
 
             while (!done) {
@@ -78,10 +82,10 @@ int draw(Graph* graph)
                 SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
                 Node* ukazka = graph->root;
                 draw_this_shit(ukazka, renderer);
-                SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
-                SDL_RenderDrawPoint (renderer, 325, 210);
-                SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
-                SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
+                //SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
+                //SDL_RenderDrawPoint (renderer, 325, 210);
+                //SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
+                //SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
                 SDL_RenderPresent(renderer);
 
                 while (SDL_PollEvent(&event)) {

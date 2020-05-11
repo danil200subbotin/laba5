@@ -7,9 +7,7 @@
 //
 
 #include "adding.h"
-#include "strukts.h"
-#include "readln.h"
-#include "vstavka.h"
+
 
 int adding(Graph *graph) {
     printf("сейчас в графе %d узлов\n", graph->n);
@@ -31,36 +29,10 @@ int adding(Graph *graph) {
     scanf("%d", &x);
     printf("введите ключ 2 (ось Y)----->");
     scanf("%d", &y);
-    int n = 0;
+    printf("введите информацию");
+    char* info = readln();
     Node* ukazka = graph->root;
-    while (n == 0) {
-        if (ukazka->type == 0) {
-            if (( x >= ukazka->gran_x) & (y >= ukazka->gran_y)) {
-                ukazka = ukazka->sun[0];
-                continue;
-            }
-            if (( x < ukazka->gran_x) & (y > ukazka->gran_y)) {
-                ukazka = ukazka->sun[1];
-                continue;
-            }
-            if (( x <= ukazka->gran_x) & (y <= ukazka->gran_y) & !((x == ukazka->gran_x) & (y == ukazka->gran_y))) {
-                ukazka = ukazka->sun[2];
-                continue;
-            }
-            if (( x > ukazka->gran_x) & (y < ukazka->gran_y)) {
-                ukazka = ukazka->sun[3];
-                continue;
-            }
-        }
-        else {
-            n = 1;
-            int chek = vstavka(x, y, ukazka);
-            if (chek == 0) {
-                printf("вставка прошла успешно\n");
-                ++(graph->n);
-            }
-        }
-        
-    }
+    perehod(x, y, info, ukazka);
+    ++(graph->n);
     return 0;
 };

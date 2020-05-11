@@ -14,7 +14,8 @@
 
 #define SIZE 4
 #define N 3
-#define UGOL 1024
+#define UGOL 800
+
 
 typedef struct List List;
 struct List {
@@ -38,6 +39,8 @@ struct Node{
 
 typedef struct Graph Graph;
 struct Graph {
+    FILE *fd;                   //нужен, чтобы подсасывать информацию из файла;
+    char* fname;
     int n;
     Node *root;
 };
