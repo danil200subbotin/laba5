@@ -15,9 +15,11 @@
 #include "searching.h"
 #include "deleting.h"
 #include "showing.h"
+#include "draw.h"
+//#include "drawcpp.hpp"
 
 
-const char *messages[] = {"0. Exit", "1. Adding element", "2. Finding element", "3. Delete element", "4. Show Al Table"};
+const char *messages[] = {"0. Exit", "1. Adding element", "2. Finding element", "3. Delete element", "4. Show Al Table", "5. DrawCoolImage"};
 
 const int Cmassages = sizeof(messages)/sizeof(messages[0]);
 
@@ -31,7 +33,7 @@ int main() {
     printf("Добро пожаловать в идеальную табличку на Q-дереве\n");
     int n = 0;
     //int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing};
-    int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing};
+    int (*func[])(Graph *) = {NULL, adding, searching, deleting, showing, draw};
     while(n != -1) {
         printf("you should have to choose one of the alternatives bellow\n");
         n = dialog(messages, Cmassages);

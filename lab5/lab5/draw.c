@@ -5,265 +5,190 @@
 //  Created by Данил Морозов on 09/05/2020.
 //  Copyright © 2020 Данил Морозов. All rights reserved.
 //
- 
+#ifndef LEVEL_H_
+#define LEVEL_H_
+#endif
 #include "draw.h"
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_timer.h>
+#include <stdio.h>
 
-  
 
-int main()
 
-{
+int SCREEN_WIDTH = 1000;
+int SCREEN_HEIGHT = 1000;
 
-  
-
-    // возвращает ноль при успехе, иначе не ноль
-
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-
-        printf("error initializing SDL: %s\n", SDL_GetError());
-
+int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
+    if (ukazka->type == 1) {
+        for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+            SDL_RenderDrawPoint (renderer, ukazka->leaves[i]->x, ukazka->leaves[i]->y);
+        }
+        return 1;
     }
-
-    SDL_Window* win = SDL_CreateWindow("GAME", // создает окно
-
-                                       SDL_WINDOWPOS_CENTERED,
-
-                                       SDL_WINDOWPOS_CENTERED,
-
-                                       1000, 1000, 0);
-
-  
-
-    // запускает программу, которая контролирует
-
-    // ваше графическое оборудование и устанавливает флаги
-
-    Uint32 render_flags = SDL_RENDERER_ACCELERATED;
-
-  
-
-    // создаем рендер для рендеринга наших изображений
-
-    SDL_Renderer* rend = SDL_CreateRenderer(win, -1, render_flags);
-
-  
-
-    // создаем поверхность для загрузки изображения в основную память
-
-    SDL_Surface* surface;
-
-  
-
-    // укажите путь к вашему изображению
-
-    surface = IMG_Load("path");
-
-  
-
-    // загружает изображение в нашу графическую аппаратную память.
-
-    SDL_Texture* tex = SDL_CreateTextureFromSurface(rend, surface);
-
-  
-
-    // очищает основную память
-
-    SDL_FreeSurface(surface);
-
-  
-
-    // давайте контролировать нашу позицию изображения
-
-    // чтобы мы могли переместить его с помощью клавиатуры.
-
-    SDL_Rect dest;
-
-  
-
-    // соединяет нашу текстуру с dest для контроля положения
-
-    SDL_QueryTexture(tex, NULL, NULL, &dest.w, &dest.h);
-
-  
-
-    // настроить высоту и ширину нашего окна изображения.
-
-    dest.w /= 6;
-
-    dest.h /= 6;
-
-  
-
-    // устанавливает начальную x-позицию объекта
-
-    dest.x = (1000 - dest.w) / 2;
-
-  
-
-    // устанавливает начальную y-позицию объекта
-
-    dest.y = (1000 - dest.h) / 2;
-
-  
-
-    // контролирует цикл анимации
-
-    int close = 0;
-
-  
-
-    // скорость коробки
-
-    int speed = 300;
-
-  
-
-    // цикл анимации
-
-    while (!close) {
-
-        SDL_Event event;
-
-  
-
-        // Управление событиями
-
-        while (SDL_PollEvent(&event)) {
-
-            switch (event.type) {
-
-  
-
-            case SDL_QUIT:
-
-                // обработка кнопки закрытия
-
-                close = 1;
-
-                break;
-
-  
-
-            case SDL_KEYDOWN:
-
-                // клавиатура API для нажатой клавиши
-
-                switch (event.key.keysym.scancode) {
-
-                case SDL_SCANCODE_W:
-
-                case SDL_SCANCODE_UP:
-
-                    dest.y -= speed / 30;
-
-                    break;
-
-                case SDL_SCANCODE_A:
-
-                case SDL_SCANCODE_LEFT:
-
-                    dest.x -= speed / 30;
-
-                    break;
-
-                case SDL_SCANCODE_S:
-
-                case SDL_SCANCODE_DOWN:
-
-                    dest.y += speed / 30;
-
-                    break;
-
-                case SDL_SCANCODE_D:
-
-                case SDL_SCANCODE_RIGHT:
-
-                    dest.x += speed / 30;
-
-                    break;
-
+    for (int i = 0; i < SIZE; ++i) {
+        if (ukazka->sun[i] != NULL) {
+            printf("-");
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+            SDL_RenderDrawLine(renderer, ukazka->min_x, ukazka->gran_y, ukazka->max_x, ukazka->gran_y);
+            SDL_RenderDrawLine(renderer, ukazka->gran_x, ukazka->max_y, ukazka->gran_x, ukazka->min_y);
+            draw_this_shit(ukazka->sun[i], renderer);
+            
+        }
+        
+    }
+    return 0;
+}
+//int showing2(Node* ukazka) {
+//    if (ukazka->type == 1) {
+//        for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
+//            printf("вот такой №%d:x=%d, y=%d, info=%s\n",i, ukazka->leaves[i]->x, ukazka->leaves[i]->y, ukazka->leaves[i]->info);
+//        }
+//        return 1;
+//    }
+//    for (int i = 0; i < SIZE; ++i) {
+//        if (ukazka->sun[i] != NULL) {
+//            printf("-");
+//            showing2(ukazka->sun[i]);
+//
+//        }
+//
+//    }
+//
+//
+//    return 0;
+//}
+
+
+
+int draw(Graph* graph)
+{
+    if (SDL_Init(SDL_INIT_VIDEO) == 0) {
+        SDL_Window* window = NULL;
+        SDL_Renderer* renderer = NULL;
+
+        if (SDL_CreateWindowAndRenderer(1024, 1024, 0, &window, &renderer) == 0) {
+            SDL_bool done = SDL_FALSE;
+
+            while (!done) {
+                SDL_Event event;
+                SDL_Delay(500);
+                SDL_SetRenderDrawColor(renderer, 216, 191, 216, SDL_ALPHA_OPAQUE);
+                SDL_RenderClear(renderer);
+
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+                Node* ukazka = graph->root;
+                draw_this_shit(ukazka, renderer);
+                SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
+                SDL_RenderDrawPoint (renderer, 325, 210);
+                SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
+                SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
+                SDL_RenderPresent(renderer);
+
+                while (SDL_PollEvent(&event)) {
+                    if (event.type ==  SDL_QUIT) {
+                        done = SDL_TRUE;
+                    }
                 }
-
             }
-
         }
 
-  
-
-        // правая граница
-
-        if (dest.x + dest.w > 1000)
-
-            dest.x = 1000 - dest.w;
-
-  
-
-        // левая граница
-
-        if (dest.x < 0)
-
-            dest.x = 0;
-
-  
-
-        // нижняя граница
-
-        if (dest.y + dest.h > 1000)
-
-            dest.y = 1000 - dest.h;
-
-  
-
-        // верхняя граница
-
-        if (dest.y < 0)
-
-            dest.y = 0;
-
-  
-
-        // очищает экран
-
-        SDL_RenderClear(rend);
-
-        SDL_RenderCopy(rend, tex, NULL, &dest);
-
-  
-
-        // запускает двойные буферы
-
-        // для многократного рендеринга
-
-        SDL_RenderPresent(rend);
-
-  
-
-        // вычисляет до 60 кадров в секунду
-
-        SDL_Delay(1000 / 60);
-
+        if (renderer) {
+            SDL_DestroyRenderer(renderer);
+        }
+        if (window) {
+            SDL_DestroyWindow(window);
+        }
     }
-
-  
-
-    // уничтожить текстуру
-
-    SDL_DestroyTexture(tex);
-
-  
-
-    // уничтожаем рендерер
-
-    SDL_DestroyRenderer(rend);
-
-  
-
-    // разрушаем окно
-
-    SDL_DestroyWindow(win);
-
+    SDL_Quit();
     return 0;
-
 }
+
+
+//#define POINTS_COUNT 4
+//
+//static SDL_Point points[POINTS_COUNT] = {
+//    {320, 200},
+//    {300, 240},
+//    {340, 240},
+//    {320, 200}
+//};
+//
+//int draw(Graph * graph)
+//{
+//    if (SDL_Init(SDL_INIT_VIDEO) == 0) {
+//        SDL_Window* window = NULL;
+//        SDL_Renderer* renderer = NULL;
+//
+//        if (SDL_CreateWindowAndRenderer(640, 480, 0, &window, &renderer) == 0) {
+//            SDL_bool done = SDL_FALSE;
+//
+//            while (!done) {
+//                SDL_Event event;
+//
+//                SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+//                SDL_RenderClear(renderer);
+//
+//                SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+//                SDL_RenderDrawLines(renderer, points, POINTS_COUNT);
+//                SDL_RenderPresent(renderer);
+//
+//                while (SDL_PollEvent(&event)) {
+//                    if (event.type == SDL_QUIT) {
+//                        done = SDL_TRUE;
+//                    }
+//                }
+//            }
+//        }
+//
+//        if (renderer) {
+//            SDL_DestroyRenderer(renderer);
+//        }
+//        if (window) {
+//            SDL_DestroyWindow(window);
+//        }
+//    }
+//    SDL_Quit();
+//    return 0;
+//}
+
+
+
+
+//int draw(Graph * graph) {
+//    SDL_Window *win = NULL;
+//    SDL_Renderer *renderer = NULL;
+//    SDL_Texture *bitmapTex = NULL;
+//    SDL_Surface *bitmapSurface = NULL;
+//    int posX = 100, posY = 100, width = 320, height = 240;
+//
+//    SDL_Init(SDL_INIT_VIDEO);
+//
+//    win = SDL_CreateWindow("Hello World", posX, posY, width, height, 0);
+//
+//    renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+//
+//    bitmapSurface = SDL_LoadBMP("img/hello.bmp");
+//    bitmapTex =  SDL_CreateTextureFromSurface( renderer,  bitmapSurface);
+//    SDL_FreeSurface( bitmapSurface);
+//
+//    while ( 1)  {
+//        SDL_Event e;
+//        if ( SDL_PollEvent( & e))  {
+//            if ( e.type ==  SDL_QUIT)  {
+//                break;
+//            }
+//        }
+//
+//        SDL_RenderClear( renderer);
+//        SDL_RenderCopy( renderer, bitmapTex, NULL, NULL);
+//        SDL_RenderPresent(renderer);
+//    }
+//
+//    SDL_DestroyTexture(bitmapTex);
+//    SDL_DestroyRenderer(renderer);
+//    SDL_DestroyWindow(win);
+//
+//    SDL_Quit();
+//
+//    return 0;
+//}

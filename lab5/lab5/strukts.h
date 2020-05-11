@@ -13,8 +13,8 @@
 #endif /* strukts_h */
 
 #define SIZE 4
-#define N 1
-#define UGOL 4096
+#define N 3
+#define UGOL 1024
 
 typedef struct List List;
 struct List {
@@ -28,7 +28,7 @@ struct Node{
     int type;                   //имеет значенение 0 для разделяющего узла
     int gran_x;                  //и 1 для узла с листьями
     int gran_y;
-    int max_x;        //да, я использую много границ, но это для того, чтобы можно было в любое время изменить размер "игрового" поля
+    int max_x;        //да, я использую много границ, но это для того, чтобы можно было в любое время изменить размер "игрового" поля и можно удобно рисовать)
     int max_y;
     int min_x;
     int min_y;
