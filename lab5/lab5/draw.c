@@ -20,6 +20,7 @@ int SCREEN_WIDTH = 1000;
 int SCREEN_HEIGHT = 1000;
 
 int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
+    
     if (ukazka->type == 1) {
         for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
             SDL_SetRenderDrawColor(renderer, 0, 0, 139, SDL_ALPHA_OPAQUE);
@@ -42,34 +43,16 @@ int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
     }
     return 0;
 }
-//int showing2(Node* ukazka) {
-//    if (ukazka->type == 1) {
-//        for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
-//            printf("вот такой №%d:x=%d, y=%d, info=%s\n",i, ukazka->leaves[i]->x, ukazka->leaves[i]->y, ukazka->leaves[i]->info);
-//        }
-//        return 1;
-//    }
-//    for (int i = 0; i < SIZE; ++i) {
-//        if (ukazka->sun[i] != NULL) {
-//            printf("-");
-//            showing2(ukazka->sun[i]);
-//
-//        }
-//
-//    }
-//
-//
-//    return 0;
-//}
+
 
 
 
 int draw(Graph* graph)
 {
+    printf("я тут\n");
     if (SDL_Init(SDL_INIT_VIDEO) == 0) {
         SDL_Window* window = NULL;
         SDL_Renderer* renderer = NULL;
-
         if (SDL_CreateWindowAndRenderer(UGOL, UGOL, 0, &window, &renderer) == 0) {
             SDL_bool done = SDL_FALSE;
 

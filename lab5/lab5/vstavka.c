@@ -18,8 +18,8 @@ int vstavka(int x, int y, char* info, Node* ukazka) {
         new->info = info;
         int i = 0;
         for (i = 0; ukazka->leaves[i] != NULL; ++i) {
-            if ((x == ukazka->leaves[i]->x) & (y == ukazka->leaves[i]->y)) {
-         //       printf("Запрещаю данное сочитание ключей!!!!!!---(x=%d;y=%d)\n", x, y);
+            if (((x == ukazka->leaves[i]->x) & (y == ukazka->leaves[i]->y)) || (x >= UGOL) || (y >= UGOL)) {
+    //           printf("Запрещаю данное сочитание ключей!!!!!!---(x=%d;y=%d)\n", x, y);
                 free(new);
                 return -1;
             }

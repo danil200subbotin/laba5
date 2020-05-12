@@ -40,11 +40,11 @@ int fortimer (int x, int y, Node *ukazka) {
     for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
      //   printf("последняя надежда ======%d======\n",i);
         if ((ukazka->leaves[i] != NULL) & (ukazka->leaves[i]->x == x) & (ukazka->leaves[i]->y == y)) {
-       // printf("удачный поиск по ключам, информация ----->%s\n", ukazka->leaves[i]->info);
+        printf("удачный поиск по ключам, информация ----->%s\n", ukazka->leaves[i]->info);
             ++n;
             return 0;
         }
     }
-   //if (n == 0) printf("неудачный поиск по ключам\n");
+//   if (n == 0) printf("неудачный поиск по ключам\n");
     return 1;
 }
