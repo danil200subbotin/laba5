@@ -9,7 +9,9 @@
 #ifndef deleting_h
 #define deleting_h
 #include <stdio.h>
-#endif /* deleting_h */
+#include <stdlib.h>
 #include "strukts.h"
+#endif /* deleting_h */
+
 
 int deleting(Graph *);

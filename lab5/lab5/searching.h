@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "strukts.h"
-
+#include "fortimer.h"
 #endif /* searching_h */
 int searching(Graph *);
 

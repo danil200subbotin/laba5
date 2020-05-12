@@ -8,9 +8,10 @@
 
 #ifndef dialog_h
 #define dialog_h
-
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
-
+#include "vstavka.h"
 #endif /* dialog_h */
 
 int dialog(const char *messages[], int);

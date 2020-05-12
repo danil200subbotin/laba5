@@ -8,7 +8,7 @@
 
 #ifndef showing_h
 #define showing_h
-
+#include "showing2.h"
 #include <stdio.h>
 #include "strukts.h"
 #endif /* showing_h */

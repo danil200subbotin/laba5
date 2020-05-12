@@ -8,7 +8,8 @@
 
 #ifndef vstavka_h
 #define vstavka_h
-
+#include <stdlib.h>
+#include "readln.h"
 #include <stdio.h>
 #include "strukts.h"
 #endif /* vstavka_h */

@@ -8,14 +8,14 @@
 #pragma once
 #ifndef strukts_h
 #define strukts_h
-
-
+#include <stdlib.h>
+#include <stdio.h>
 #endif /* strukts_h */
-
+#include <Limits.h>
 #define SIZE 4
 #define N 3
-#define UGOL 800
-
+#define UGOL 10000000
+//#define UGOL 864
 
 typedef struct List List;
 struct List {
@@ -39,7 +39,7 @@ struct Node{
 
 typedef struct Graph Graph;
 struct Graph {
-    FILE *fd;                   //нужен, чтобы подсасывать информацию из файла;
+    FILE* fd;                   //нужен, чтобы подсасывать информацию из файла;
     char* fname;
     int n;
     Node *root;

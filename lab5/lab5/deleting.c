@@ -7,7 +7,7 @@
 //
 
 #include "deleting.h"
-#include <stdlib.h>
+
 
 int deleting(Graph * graph) {
     int x, y;
@@ -44,6 +44,9 @@ int deleting(Graph * graph) {
                 printf("нашелся такой элементик, удаляю\n");
                 free(ukazka->leaves[h]->info);
                 ukazka->leaves[h] = NULL;
+                for (int i = h; i < N-1; ++i) {
+                    ukazka->leaves[i] = ukazka->leaves[i+1];
+                }
                 --(graph->n);
                 }
             }

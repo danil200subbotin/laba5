@@ -20,6 +20,9 @@
 		0F7577952466092B0018D5B8 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F7577942466092B0018D5B8 /* draw.c */; };
 		0FD4B3FA2469351600446D96 /* read_from_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B3F92469351600446D96 /* read_from_file.c */; };
 		0FD4B4102469D3EC00446D96 /* perehod.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B40F2469D3EC00446D96 /* perehod.c */; };
+		0FD4B4132469F42200446D96 /* Timing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B4122469F42200446D96 /* Timing.c */; };
+		0FD4B4162469FFF200446D96 /* fortimer.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B4152469FFF200446D96 /* fortimer.c */; };
+		0FD4B419246A564800446D96 /* delGraph.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B418246A564800446D96 /* delGraph.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +64,12 @@
 		0FD4B3F92469351600446D96 /* read_from_file.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = read_from_file.c; sourceTree = "<group>"; };
 		0FD4B40E2469D3EC00446D96 /* perehod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perehod.h; sourceTree = "<group>"; };
 		0FD4B40F2469D3EC00446D96 /* perehod.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perehod.c; sourceTree = "<group>"; };
+		0FD4B4112469F42200446D96 /* Timing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
+		0FD4B4122469F42200446D96 /* Timing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Timing.c; sourceTree = "<group>"; };
+		0FD4B4142469FFF200446D96 /* fortimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fortimer.h; sourceTree = "<group>"; };
+		0FD4B4152469FFF200446D96 /* fortimer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fortimer.c; sourceTree = "<group>"; };
+		0FD4B417246A564800446D96 /* delGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = delGraph.h; sourceTree = "<group>"; };
+		0FD4B418246A564800446D96 /* delGraph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = delGraph.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,28 +104,34 @@
 		0F3B8475245F752000724DFD /* lab5 */ = {
 			isa = PBXGroup;
 			children = (
-				0F7577822460B8670018D5B8 /* searching.c */,
-				0F75778B246138FF0018D5B8 /* vstavka.c */,
-				0F75778A246138FF0018D5B8 /* vstavka.h */,
-				0FD4B40E2469D3EC00446D96 /* perehod.h */,
-				0FD4B40F2469D3EC00446D96 /* perehod.c */,
-				0F75777E2460A99A0018D5B8 /* adding.c */,
-				0F7577802460AA250018D5B8 /* strukts.h */,
 				0F3B8476245F752000724DFD /* main.c */,
-				0F757777246091680018D5B8 /* readln.h */,
+				0FD4B417246A564800446D96 /* delGraph.h */,
+				0FD4B418246A564800446D96 /* delGraph.c */,
+				0F7577822460B8670018D5B8 /* searching.c */,
+				0FD4B4142469FFF200446D96 /* fortimer.h */,
+				0FD4B4152469FFF200446D96 /* fortimer.c */,
 				0F757778246091680018D5B8 /* readln.c */,
-				0F75777A246093FC0018D5B8 /* dialog.h */,
+				0F75778D2465DFA90018D5B8 /* showing.c */,
+				0F7577882460B8900018D5B8 /* showing2.c */,
+				0F75777E2460A99A0018D5B8 /* adding.c */,
+				0FD4B40F2469D3EC00446D96 /* perehod.c */,
+				0F75778B246138FF0018D5B8 /* vstavka.c */,
+				0F7577852460B87B0018D5B8 /* deleting.c */,
+				0F7577942466092B0018D5B8 /* draw.c */,
 				0F75777B246093FC0018D5B8 /* dialog.c */,
+				0F7577802460AA250018D5B8 /* strukts.h */,
+				0F757777246091680018D5B8 /* readln.h */,
+				0FD4B4112469F42200446D96 /* Timing.h */,
+				0FD4B4122469F42200446D96 /* Timing.c */,
+				0F75777A246093FC0018D5B8 /* dialog.h */,
+				0F75778A246138FF0018D5B8 /* vstavka.h */,
 				0F75777D2460A99A0018D5B8 /* adding.h */,
 				0F7577812460B8670018D5B8 /* searching.h */,
+				0FD4B40E2469D3EC00446D96 /* perehod.h */,
 				0F7577842460B87B0018D5B8 /* deleting.h */,
-				0F7577852460B87B0018D5B8 /* deleting.c */,
 				0F7577872460B8900018D5B8 /* showing.h */,
-				0F75778D2465DFA90018D5B8 /* showing.c */,
 				0F75778F2465E0050018D5B8 /* showing2.h */,
-				0F7577882460B8900018D5B8 /* showing2.c */,
 				0F7577932466092B0018D5B8 /* draw.h */,
-				0F7577942466092B0018D5B8 /* draw.c */,
 				0FD4B3F82469351600446D96 /* read_from_file.h */,
 				0FD4B3F92469351600446D96 /* read_from_file.c */,
 			);
@@ -193,12 +208,15 @@
 				0F75777F2460A99A0018D5B8 /* adding.c in Sources */,
 				0F75778C246138FF0018D5B8 /* vstavka.c in Sources */,
 				0FD4B3FA2469351600446D96 /* read_from_file.c in Sources */,
+				0FD4B4162469FFF200446D96 /* fortimer.c in Sources */,
 				0FD4B4102469D3EC00446D96 /* perehod.c in Sources */,
 				0F7577892460B8900018D5B8 /* showing2.c in Sources */,
+				0FD4B4132469F42200446D96 /* Timing.c in Sources */,
 				0F7577952466092B0018D5B8 /* draw.c in Sources */,
 				0F757779246091680018D5B8 /* readln.c in Sources */,
 				0F7577862460B87B0018D5B8 /* deleting.c in Sources */,
 				0F75777C246093FC0018D5B8 /* dialog.c in Sources */,
+				0FD4B419246A564800446D96 /* delGraph.c in Sources */,
 				0F3B8477245F752000724DFD /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

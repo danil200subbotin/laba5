@@ -6,9 +6,8 @@
 //  Copyright © 2020 Данил Морозов. All rights reserved.
 //
 
-#include <stdio.h>
 #include "showing.h"
-#include "showing2.h"
+
 
 int showing(Graph * graph) {
     Node* ukazka = graph->root;

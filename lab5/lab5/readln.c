@@ -7,9 +7,7 @@
 //
 
 #include "readln.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 char *readln(void) {
     fseek (stdin, 0, SEEK_END);

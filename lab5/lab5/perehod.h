@@ -14,4 +14,4 @@
 #include "vstavka.h"
 #endif /* perehod_h */
 
-int perehod(int x, int y,char* info, Node* ukazka);
+int perehod(int x, int y,char* info, Node* ukazka, Graph* graph);

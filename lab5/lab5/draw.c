@@ -12,7 +12,7 @@
 #include "draw.h"
 #include <SDL2/SDL.h>
 #include <stdio.h>
-#define DOT 7
+#define DOT 5
 #include "strukts.h"
 
 
@@ -22,7 +22,7 @@ int SCREEN_HEIGHT = 1000;
 int draw_this_shit(Node* ukazka, SDL_Renderer* renderer) {
     if (ukazka->type == 1) {
         for (int i = 0; ukazka->leaves[i] != NULL; ++i) {
-            SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+            SDL_SetRenderDrawColor(renderer, 0, 0, 139, SDL_ALPHA_OPAQUE);
             //SDL_RenderDrawPoint (renderer, ukazka->leaves[i]->x, ukazka->leaves[i]->y);
             SDL_RenderDrawLine(renderer, ukazka->leaves[i]->x+DOT, UGOL - (ukazka->leaves[i]->y+DOT), ukazka->leaves[i]->x-DOT, UGOL - (ukazka->leaves[i]->y-DOT));
             SDL_RenderDrawLine(renderer, ukazka->leaves[i]->x-DOT, UGOL - (ukazka->leaves[i]->y+DOT), ukazka->leaves[i]->x+DOT, UGOL - (ukazka->leaves[i]->y-DOT));

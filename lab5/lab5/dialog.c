@@ -7,9 +7,7 @@
 //
 
 #include "dialog.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 
 int dialog(const char *messages[], int n) {

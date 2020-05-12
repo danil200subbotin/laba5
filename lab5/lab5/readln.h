@@ -8,7 +8,8 @@
 
 #ifndef readln_h
 #define readln_h
-
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 #endif /* readln_h */
