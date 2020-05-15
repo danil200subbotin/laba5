@@ -14,8 +14,8 @@
 #include <Limits.h>
 #define SIZE 4
 #define N 3
-#define UGOL 10000000
-//#define UGOL 864
+//#define UGOL 10000000
+#define UGOL 864
 
 typedef struct List List;
 struct List {

@@ -23,6 +23,7 @@
 		0FD4B4132469F42200446D96 /* Timing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B4122469F42200446D96 /* Timing.c */; };
 		0FD4B4162469FFF200446D96 /* fortimer.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B4152469FFF200446D96 /* fortimer.c */; };
 		0FD4B419246A564800446D96 /* delGraph.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4B418246A564800446D96 /* delGraph.c */; };
+		0FF8BE23246E4BF800F328E7 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF8BE22246E4BF800F328E7 /* SDL2_ttf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +71,7 @@
 		0FD4B4152469FFF200446D96 /* fortimer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fortimer.c; sourceTree = "<group>"; };
 		0FD4B417246A564800446D96 /* delGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = delGraph.h; sourceTree = "<group>"; };
 		0FD4B418246A564800446D96 /* delGraph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = delGraph.c; sourceTree = "<group>"; };
+		0FF8BE22246E4BF800F328E7 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF8BE23246E4BF800F328E7 /* SDL2_ttf.framework in Frameworks */,
 				0F757792246608EB0018D5B8 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +144,7 @@
 		0F757790246608EB0018D5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FF8BE22246E4BF800F328E7 /* SDL2_ttf.framework */,
 				0F757791246608EB0018D5B8 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
@@ -337,6 +341,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = " /usr/local/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -350,6 +358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = " /usr/local/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

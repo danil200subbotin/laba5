@@ -4,8 +4,7 @@
 //
 //  Created by Данил Морозов on 09/05/2020.
 //  Copyright © 2020 Данил Морозов. All rights reserved.
-//
-#pragma once
+//SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
 #ifndef LEVEL_H_
 #define LEVEL_H_
 #endif
@@ -14,7 +13,7 @@
 #include <stdio.h>
 #define DOT 5
 #include "strukts.h"
-
+#include <SDL2/SDL_ttf.h>
 
 int SCREEN_WIDTH = 1000;
 int SCREEN_HEIGHT = 1000;
@@ -55,19 +54,37 @@ int draw(Graph* graph)
         SDL_Renderer* renderer = NULL;
         if (SDL_CreateWindowAndRenderer(UGOL, UGOL, 0, &window, &renderer) == 0) {
             SDL_bool done = SDL_FALSE;
+            
+            
+            
+            TTF_Init();
 
+            TTF_Font *verdanaFont = TTF_OpenFont("/Users/danilmorozov/Desktop/GIT HUB/laba5/Metroplex Shadow.ttf", 25);
+            SDL_Color textColor = { 0, 0, 0, 255 };
+            SDL_Surface *textSurface = TTF_RenderText_Solid(verdanaFont, "Hello World", textColor);
+            SDL_Texture *textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+            SDL_Rect textRect;
+            textRect.x = UGOL - textSurface->w * 0.5;
+            textRect.y = UGOL - textSurface->h * 0.5;
+            textRect.w = textSurface->w;
+            textRect.h = textSurface->h;
+
+            SDL_FreeSurface(textSurface);
+            TTF_Quit();
+            
+            
+            
             while (!done) {
                 SDL_Event event;
                 SDL_Delay(500);
                 SDL_SetRenderDrawColor(renderer, 216, 191, 216, SDL_ALPHA_OPAQUE);
                 SDL_RenderClear(renderer);
-
+                
                 SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
                 Node* ukazka = graph->root;
                 draw_this_shit(ukazka, renderer);
                 //SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
-                //SDL_RenderDrawPoint (renderer, 325, 210);
-                //SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
+               SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
                 //SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
                 SDL_RenderPresent(renderer);
 
@@ -77,8 +94,9 @@ int draw(Graph* graph)
                     }
                 }
             }
+            SDL_DestroyTexture(textTexture);
         }
-
+        
         if (renderer) {
             SDL_DestroyRenderer(renderer);
         }

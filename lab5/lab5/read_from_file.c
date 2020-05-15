@@ -5,7 +5,6 @@
 //  Created by Данил Морозов on 11/05/2020.
 //  Copyright © 2020 Данил Морозов. All rights reserved.
 //
-#pragma once
 #include "read_from_file.h"
 
 
